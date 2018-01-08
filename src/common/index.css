@@ -1,0 +1,38 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    -webkit-text-size-adjust:none;
+    font-family: '微软雅黑';
+}
+ol,li{list-style: none;}
+a{
+  display: block;
+  text-decoration: none;
+  color: black;
+  -webkit-tap-highlight-color: transparent;
+}
+.main{
+    position: absolute;
+    top:5rem;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #efefef;
+    overflow-y:scroll;
+    font-size: 1rem;
+}
+/* img[lazy=loading]{
+  background: url("./images/loadings.gif") center center no-repeat;
+  -webkit-background-size: 40px 40px;
+  background-size: 40px 40px;
+} */
+.green{
+  color: green;
+}
+.orange{
+  color: orange
+}
+.skybule{
+  color: skyblue;
+}
