@@ -19,9 +19,9 @@
                 </div>
                 <div class="banner">
                   <mt-swipe :auto="2000" >
-                    <mt-swipe-item><img src="../common/images/banner1.jpeg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../common/images/banner2.jpeg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../common/images/banner3.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner1.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner2.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner3.jpeg" alt=""></mt-swipe-item>
                   </mt-swipe>
                 </div>
                 <div class="zhibolist">
@@ -39,7 +39,7 @@
                   <div class="comlis">
                       <ul>
                         <li>
-                          <div class="imgs"><img src="../common/images/banner2.jpeg" alt="" ><span>主播名称</span></div>
+                          <div class="imgs"><img src="/static/images/banner2.jpeg" alt="" ><span>主播名称</span></div>
                           <div class="content">
                             <p>直播内容叙述</p>
                             <span class="span1">直播类型</span>
@@ -47,7 +47,7 @@
                           </div>
                         </li>
                         <li>
-                          <div class="imgs"><img src="../common/images/banner1.jpeg" alt="" ><span>主播名称</span></div>
+                          <div class="imgs"><img src="/static/images/banner1.jpeg" alt="" ><span>主播名称</span></div>
                           <div class="content">
                             <p>直播内容叙述撒口红的就撒欢的卡号是大家哈大客吉哈德看韩剧</p>
                             <span class="span1">直播类型</span>
@@ -55,7 +55,7 @@
                           </div>
                         </li>
                         <li>
-                          <div class="imgs"><img src="../common/images/banner1.jpeg" alt="" ><span>主播名称</span></div>
+                          <div class="imgs"><img src="/static/images/banner1.jpeg" alt="" ><span>主播名称</span></div>
                           <div class="content">
                             <p>直播内容叙述撒口红的就撒欢的卡号是大家哈大客吉哈德看韩剧</p>
                             <span class="span1">直播类型</span>
@@ -85,7 +85,7 @@
                   <ul>
                     <li>
                       <div class="imgs">
-                        <img src="../common/images/banner1.jpeg" alt="" >
+                        <img src="/static/images/banner1.jpeg" alt="" >
                         <div class="imgjs">
                           <span><i class="iconfont icon-dianshi"></i>1.7万</span>
                           <span><i class="iconfont icon-xiangbu"></i>666</span>
@@ -100,7 +100,7 @@
                     </li>
                     <li>
                       <div class="imgs">
-                        <img src="../common/images/banner1.jpeg" alt="" >
+                        <img src="/static/images/banner1.jpeg" alt="" >
                         <div class="imgjs">
                           <span><i class="iconfont icon-dianshi"></i>1.7万</span>
                           <span><i class="iconfont icon-xiangbu"></i>666</span>
@@ -140,24 +140,24 @@
                  <div class="zflis">
                    <ul>
                      <li>
-                       <div class="pic"><img src="../common/images/fm.jpg" alt="" srcset=""></div>
+                       <div class="pic"><img src="/static/images/fm.jpg" alt="" srcset=""></div>
                        <div class="fjname">一人之下 第二季</div>
                        <div class="fjnum">更新至第10话</div>
                      </li>
                      <li>
-                       <div class="pic"><img src="../common/images/fm.jpg" alt="" srcset=""></div>
+                       <div class="pic"><img src="/static/images/fm.jpg" alt="" srcset=""></div>
                        <div class="fjname">一人之下 第二季</div>
                        <div class="fjnum">更新至第10话</div>
                      </li>
                      <li>
-                       <div class="pic"><img src="../common/images/fm.jpg" alt="" srcset=""></div>
+                       <div class="pic"><img src="/static/images/fm.jpg" alt="" srcset=""></div>
                        <div class="fjname">一人之下 第二季</div>
                        <div class="fjnum">更新至第10话</div>
                      </li>
                    </ul>
                  </div>
                  <div class="fjbanner">
-                     <div class="fj-banner"><img src="../common/images/timgbanner.jpg" alt="" srcset=""></div>
+                     <div class="fj-banner"><img src="/static/images/timgbanner.jpg" alt="" srcset=""></div>
                      <div class="banner-con">
                        <div class="banner-name">广告的详情描述</div>
                        <div class="banner-jj">广告的简单介噜嘟哩度督噜督噜督拉肚肚都拉肚肚都拉肚肚都拉肚肚的路堵得拉肚肚都拉肚肚都拉肚肚都拉肚</div>
@@ -171,9 +171,9 @@
               <div class="lists">
                 <div class="ys-banner">
                    <mt-swipe :auto="2000" >
-                    <mt-swipe-item><img src="../common/images/banner1.jpeg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../common/images/banner2.jpeg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../common/images/banner3.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner1.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner2.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner3.jpeg" alt=""></mt-swipe-item>
                   </mt-swipe>
                 </div>
                 <div class="ys-nav">
@@ -191,7 +191,7 @@
                     <ul>
                       <li>
                         <div class="imgs">
-                          <img src="../common/images/banner1.jpeg" alt="" >
+                          <img src="/static/images/banner1.jpeg" alt="" >
                           <div class="imgjs">
                             <span><i class="iconfont icon-dianshi"></i>1.7万</span>
                             <span><i class="iconfont icon-xiangbu"></i>666</span>
@@ -205,7 +205,7 @@
                      </li>
                      <li>
                         <div class="imgs">
-                          <img src="../common/images/banner1.jpeg" alt="" >
+                          <img src="/static/images/banner1.jpeg" alt="" >
                           <div class="imgjs">
                             <span><i class="iconfont icon-dianshi"></i>1.7万</span>
                             <span><i class="iconfont icon-xiangbu"></i>666</span>
@@ -219,7 +219,7 @@
                     </li>
                     <li>
                         <div class="imgs">
-                          <img src="../common/images/banner1.jpeg" alt="" >
+                          <img src="/static/images/banner1.jpeg" alt="" >
                           <div class="imgjs">
                             <span><i class="iconfont icon-dianshi"></i>1.7万</span>
                             <span><i class="iconfont icon-xiangbu"></i>666</span>
@@ -241,14 +241,14 @@
                   <div class="yst-lis">
                     <ul>
                       <li>
-                        <div class="yst-img"><img src="../common/images/banner1.jpeg" alt="" srcset=""></div>
+                        <div class="yst-img"><img src="/static/images/banner1.jpeg" alt="" srcset=""></div>
                         <div class="yst-con">
                           <p>banner显示标题</p>
                           <span>banner简单介绍</span>
                         </div>
                       </li>
                       <li>
-                        <div class="yst-img"><img src="../common/images/banner1.jpeg" alt="" srcset=""></div>
+                        <div class="yst-img"><img src="/static/images/banner1.jpeg" alt="" srcset=""></div>
                         <div class="yst-con">
                           <p>banner显示标题</p>
                           <span>banner简单介绍</span>
@@ -263,9 +263,9 @@
               <div class="lists">
                 <div class="zl-banner">
                    <mt-swipe :auto="2000" >
-                    <mt-swipe-item><img src="../common/images/banner1.jpeg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../common/images/banner2.jpeg" alt=""></mt-swipe-item>
-                    <mt-swipe-item><img src="../common/images/banner3.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner1.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner2.jpeg" alt=""></mt-swipe-item>
+                    <mt-swipe-item><img src="/static/images/banner3.jpeg" alt=""></mt-swipe-item>
                   </mt-swipe>
                 </div>
                 <div class="zl-nav">

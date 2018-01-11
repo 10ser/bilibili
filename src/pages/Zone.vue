@@ -32,7 +32,7 @@
         <div class="fq-lis">
           <ul>
             <li>
-              <div class="fq-img"><img src="../common/images/banner1.jpeg" alt="" srcset=""></div>
+              <div class="fq-img"><img src="/static/images/banner1.jpeg" alt="" srcset=""></div>
               <div class="fq-con">
                 <p>banner显示的主要展示</p>
                 <span><b class="iconfont icon-dianshi"></b>141.2万</span>
@@ -40,7 +40,7 @@
               </div>
             </li>
             <li>
-              <div class="fq-img"><img src="../common/images/banner1.jpeg" alt="" srcset=""></div>
+              <div class="fq-img"><img src="/static/images/banner1.jpeg" alt="" srcset=""></div>
               <div class="fq-con">
                 <p>banner显示的主要展示</p>
                 <span><b class="iconfont icon-dianshi"></b>141.2万</span>
@@ -48,6 +48,10 @@
               </div>
             </li>
           </ul>
+            <div class="fq-btns">
+              <span>更多番剧</span>
+              <span>14条新动态，点击刷新<b class="iconfont icon-shuaxin"></b></span>
+            </div>
         </div>
       </div>
     </div>
@@ -86,7 +90,7 @@ export default {
     width: 100%;
     .fq-title{
       width: 100%;
-      overflow: auto;
+      overflow: hidden;
       height: 3rem;
       line-height:3rem;
       padding: 0 2.5%; 
@@ -117,6 +121,7 @@ export default {
           width: 48.5%;
           height: 12.5rem;
           position: relative;
+          font-size: .8rem;
           .fq-img{
             width: 100%;
             height: 65%;
@@ -144,6 +149,24 @@ export default {
               }
             }
           }
+        }
+      }
+      .fq-btns{
+        width: 100%;
+        padding: 2% 2.5%;
+        overflow: auto;
+        span:first-child{
+          float: left;
+          width: 25%;
+          height: 2rem;
+          background-color: #fff;
+          line-height: 2rem;
+          text-align: center;
+        }
+        span:last-child{
+          float: right;
+          width: 40%;
+          b{color: #fb7299;margin: 0% 3%;}
         }
       }
     }

@@ -11,6 +11,8 @@ const Zone = resolve => require(['@/pages/Zone.vue'], resolve)
 const Dynamic = resolve => require(['@/pages/Dynamic.vue'], resolve)
 const Home = resolve => require(['@/pages/Home.vue'], resolve)
 const Listcom = resolve => require(['@/components/Listcom.vue'], resolve)
+const Login = resolve => require(['@/pages/Login.vue'], resolve)
+const Register = resolve => require(['@/pages/Register.vue'], resolve)
 
 Vue.use(Router)
 
@@ -45,6 +47,16 @@ export default new Router({
       path: '/listcom',
       name: 'listcom',
       component: Listcom
+    },
+    {
+      path: '/login',
+      name: 'login',
+      component: Login
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register
     }
   ]
 })

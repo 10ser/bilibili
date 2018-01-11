@@ -8,10 +8,10 @@
       <ul>
         <li>
           <div class="dp-name">点评的标题总览</div>
-          <div class="dp-img"><img src="../common/images/fm.jpg" alt="" srcset=""></div>
+          <div class="dp-img"><img src="/static/images/fm.jpg" alt="" srcset=""></div>
           <div class="dp-con">点评的主要内容：会感受到并参考上一条无法思考层面徐小凤社团法人女女变得非常的轮廓分明常发股份</div>
           <div class="dp-user">
-            <div class="dp-head"><img src="../common/images/timg.1.jpg" alt="" srcset=""></div>
+            <div class="dp-head"><img src="/static/images/timg.1.jpg" alt="" srcset=""></div>
             <div class="dp-username">用户名</div>
             <div class="dp-time">xx小时前</div>
             <div class="dp-pl"><span class="iconfont icon-pinglun"></span>99</div>
@@ -20,10 +20,10 @@
         </li>
         <li>
           <div class="dp-name">点评的标题总览</div>
-          <div class="dp-img"><img src="../common/images/fm.jpg" alt="" srcset=""></div>
+          <div class="dp-img"><img src="/static/images/fm.jpg" alt="" srcset=""></div>
           <div class="dp-con">点评的主要内容：会感受到并参考上一条无法思考层面徐小凤社团法人女女变得非常的轮廓分明常发股份</div>
           <div class="dp-user">
-            <div class="dp-head"><img src="../common/images/timg.1.jpg" alt="" srcset=""></div>
+            <div class="dp-head"><img src="/static/images/timg.1.jpg" alt="" srcset=""></div>
             <div class="dp-username">用户名</div>
             <div class="dp-time">xx小时前</div>
             <div class="dp-pl"><span class="iconfont icon-pinglun"></span>99</div>

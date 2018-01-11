@@ -36,3 +36,8 @@ a{
 .skybule{
   color: skyblue;
 }
+.omitted{
+  overflow: hidden;
+  text-overflow:ellipsis;
+  white-space: nowrap;
+}
