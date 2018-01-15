@@ -1,12 +1,12 @@
 <template>
   <div class="dynamic">
     <div class="main">
-       <nav>
+       <nav v-if="loginbol">
          <a href="###" @click="changeactive(1)">视频</a>
          <a href="###" @click="changeactive(2)">综合</a>
          <a href="###" @click="changeactive(3)">热门</a>
        </nav>
-       <div class="dt-content">
+       <div class="dt-content" v-if="loginbol">
          <mt-tab-container v-model="active" swipeable>
            <mt-tab-container-item id="tab1" class="shipin">
              <div class="history">
@@ -76,7 +76,7 @@
            </mt-tab-container-item>
          </mt-tab-container>
        </div>
-       <div class="wdl" v-if="!wdlbol">
+       <div class="wdl" v-if="!loginbol">
          <img src="/static/images/weidenglu.png" alt="">
          <button @click="tologin">登录</button>
        </div>
@@ -89,8 +89,7 @@ import TabBar from '@/components/TabBar/TabBar'
 export default {
   data () {
     return {
-      active: 'tab1',
-      wdlbol: true
+      active: 'tab1'
     }
   },
   methods: {
@@ -103,6 +102,11 @@ export default {
   },
   components: {
     TabBar
+  },
+  computed: {
+    loginbol () {
+      return this.$store.state.loginbol
+    }
   }
 }
 </script>

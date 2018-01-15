@@ -18,16 +18,17 @@
             <div class="con" :class="{'active': listAnimate}">
                 <div class="via">
                     <div class="via-head"><img src="./images/timg.jpg" alt=""></div>
-                    <div class="usermessage">
+                    <div class="usermessage" v-if="loginbol">
                         <b>罗狮鼠</b>
                         <span>LV 2</span>
                         <var>正式会员</var>
                     </div>
-                    <div class="user-yb">硬币：100</div>
-                    <div class="userTP">
+                    <div class="user-yb" v-if="loginbol">硬币：100</div>
+                    <div class="userTP" v-if="loginbol">
                         <span class="iconfont icon-qianbao"></span>
                         <span class="iconfont icon-erweima"></span>
                     </div>
+                    <div class="loginbtn" v-if="!loginbol" @click="tologin">点击登录</div>
                 </div>
                 <div class="sidelist">
                     <a href="###"><span class="iconfont icon-shouye"></span>首页</a>
@@ -38,7 +39,7 @@
                     <a href="###"><span class="iconfont icon-keji-"></span>稍后再看</a>
                     <a href="###"><span class="iconfont icon-dianshi"></span>直播中心</a>
                     <a href="###"><span class="iconfont icon-a536"></span>会员中心</a>
-                    <a href="###"><span class="iconfont icon-liuliang"></span>免流量服务</a>
+                    <a href="###" @click.prevent="touser"><span class="iconfont icon-liuliang"></span>账号资料</a>
                 </div>
                 <div class="footbar">
                     <a href="###"><span class="iconfont icon-settings"></span>设置</a>
@@ -78,6 +79,22 @@ export default {
       setTimeout(() => {
         this.listbol = false
       }, 500)
+    },
+    tologin () {
+      this.$router.push('/login')
+    },
+    touser () {
+      if (!this.userInfo.id) {
+        this.$router.push('/usermsg')
+      }
+    }
+  },
+  computed: {
+    loginbol () {
+      return this.$store.state.loginbol
+    },
+    userInfo () {
+      return this.$store.state.userInfo
     }
   }
 }
@@ -241,6 +258,12 @@ nav {
       }
       .user-yb {
         color: pink;
+      }
+      .loginbtn{
+        color: #fff;
+        padding: 3%;
+        width: 35%;
+        font-size: 1.3rem;
       }
       .userTP {
         position: absolute;

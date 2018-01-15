@@ -1,17 +1,17 @@
 <template>
   <div class="news">
     <div class="main">
-       <nav class="xxnav">
+       <nav class="xxnav" v-if="loginbol">
         <a href="###"><span class="iconfont icon-pinglun"></span>回复我的</a>         
         <a href="###"><span class="iconfont icon-at"></span>@我</a>         
         <a href="###"><span class="iconfont icon-praise"></span>收到的赞</a>         
         <a href="###"><span class="iconfont icon-tongzhi"></span>系统通知</a>         
        </nav>
-       <div class="kong">
+       <div class="kong" v-if="loginbol">
          <img src="/static/images/kong.jpeg" alt="">
        </div>
-       <div class="wdl" v-if="!wdlbol">
-         <img src="/static/images/weidenglu2.png" alt="">
+       <div class="wdl" v-if="!loginbol">
+         <img src="/static/images/weidenglu2.png" alt="" @click="tologin">
        </div>
     </div>
     <TabBar msg='消息'/>
@@ -25,7 +25,16 @@ export default {
   },
   data () {
     return {
-      wdlbol: true
+    }
+  },
+  computed: {
+    loginbol () {
+      return this.$store.state.loginbol
+    }
+  },
+  methods: {
+    tologin () {
+      this.$router.push('/login')
     }
   }
 }

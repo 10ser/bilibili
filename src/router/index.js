@@ -13,6 +13,7 @@ const Home = resolve => require(['@/pages/Home.vue'], resolve)
 const Listcom = resolve => require(['@/components/Listcom.vue'], resolve)
 const Login = resolve => require(['@/pages/Login.vue'], resolve)
 const Register = resolve => require(['@/pages/Register.vue'], resolve)
+const UserMsg = resolve => require(['@/pages/UserMsg.vue'], resolve)
 
 Vue.use(Router)
 
@@ -57,6 +58,11 @@ export default new Router({
       path: '/register',
       name: 'register',
       component: Register
+    },
+    {
+      path: '/usermsg',
+      name: 'usermsg',
+      component: UserMsg
     }
   ]
 })

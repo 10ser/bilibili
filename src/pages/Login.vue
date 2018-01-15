@@ -2,14 +2,14 @@
   <div class="login">
     <headbar title="登录" wjbol = true />
     <div class="main">
-      <div class="banner"><img :src="'/static/'+name+'.png'" alt=""></div>
+      <div class="banner"><img :src="'/static/images/'+name+'.png'" alt=""></div>
       <div class="forms">
         <form action="">
-          <div class="user"><span class="iconfont icon-yonghu"></span><input type="text" placeholder="你的手机号/邮箱"></div>
-          <div class="psd"><span class="iconfont icon-mima"></span><input type="password" placeholder="请输入密码"></div>
+          <div class="user" :class="{'color':activeO}"><span class="iconfont icon-yonghu"></span><input type="text" placeholder="你的手机号/邮箱" v-model="user"  v-focus @focus="focusone"></div>
+          <div class="psd" :class="{'color':!activeO}"><span class="iconfont icon-mima"></span><input type="password" placeholder="请输入密码" v-model="psd" @focus="focustwo"></div>
           <div class="btns">
             <button @click="toreg">注册账号</button>
-            <button>登录</button>
+            <button @click="login">登录</button>
           </div>
         </form>
       </div>
@@ -24,12 +24,59 @@ export default {
   },
   data () {
     return {
-      name: 'denglu'
+      name: 'denglu',
+      user: '',
+      psd: '',
+      activeO: true
     }
   },
   methods: {
+    focusone () {
+      this.name = 'denglu'
+      this.activeO = true
+      console.log('focus1')
+    },
+    focustwo () {
+      this.name = 'denglu2'
+      this.activeO = false
+      console.log('focus2')
+    },
     toreg () {
       this.$router.push('/register')
+    },
+    login () {
+      let user = this.user
+      let psd = this.psd
+      if (user === '' || psd === '') {
+        this.$msg('提示', '账号或密码不得为空')
+      } else {
+        if (/^1[3578]\d{9}$/.test(user)) {
+          if (/^[a-zA-Z]\w{5}$/.test(psd)) {
+            this.$store.dispatch('login', user, psd)
+             .then(res => {
+               if (res === '该用户不存在') {
+                 this.$msg.confirm('提示', '该用户不存在，是否跳转注册页面')
+                  .then(res => {
+                    this.$router.push('/register')
+                  })
+               } else if (res === '该用户存在') {
+                 this.$msg('提示', '登陆成功')
+                  .then(res => {
+                    this.$router.push('/')
+                  })
+               }
+             })
+          } else {
+            this.$msg('提示', '密码格式错误，字母开头与数字组合的六位数')
+            this.user = ''
+            this.psd = ''
+          }
+        } else {
+          this.$msg('提示', '账号格式错误，请输入正确手机号')
+          this.user = ''
+          this.psd = ''
+        }
+      }
     }
   }
 }
@@ -89,6 +136,10 @@ export default {
       color: #fff;
     }
   }
+}
+.color{
+  input{border-bottom:solid 1px #fb7299;}
+  span{color: #fb7299;}
 }
 </style>
 
