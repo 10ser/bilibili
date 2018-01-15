@@ -2,12 +2,12 @@
   <div class="home">
       <div class="main">
         <div class="navlist">  
-              <a href="###"  @click="changeActive(1)">直播</a>
-              <a href="###"  @click="changeActive(2)">推荐</a>
-              <a href="###"  @click="changeActive(3)">追番</a>
-              <a href="###"  @click="changeActive(4)">影视</a>
-              <a href="###"  @click="changeActive(5)">专栏</a>
-              <span ref="span1"></span>
+              <a href="###"  @click="changeActive(1)" :class="{'white': active === 'conlistr1'}">直播</a>
+              <a href="###"  @click="changeActive(2)" :class="{'white': active === 'conlistr2'}">推荐</a>
+              <a href="###"  @click="changeActive(3)" :class="{'white': active === 'conlistr3'}">追番</a>
+              <a href="###"  @click="changeActive(4)" :class="{'white': active === 'conlistr4'}">影视</a>
+              <a href="###"  @click="changeActive(5)" :class="{'white': active === 'conlistr5'}">专栏</a>
+              <span ref="span1" :class="{'span2':active === 'conlistr2','span3':active === 'conlistr3','span4':active === 'conlistr4','span5':active === 'conlistr5'}"></span>
         </div> 
         <div class="conlist" >
           <mt-tab-container v-model="active" swipeable>
@@ -302,10 +302,6 @@ export default {
   methods: {
     changeActive (index) {
       this.active = 'conlistr' + index
-      // let span = this.$refs.span
-      // console.log(span)
-      // span.style.transform = 'translateX(18% *' + index + ')'
-      // console.log(this.active)
     }
   }
 }
@@ -333,9 +329,12 @@ export default {
       text-align: center;
       position: relative;
       padding: 2.5% 0 0 0;
-      color: #fff;
+      color: #e6e6e6;
       display: block;
       // border-bottom: 2px solid;
+    }
+    .white{
+      color: #fff;
     }
     span{
       border: 1.5px solid;
@@ -344,11 +343,14 @@ export default {
       color: #fff;
       width: 18%;
       border-radius: 10%;
-      left: 2%;
       bottom: 0;
       transition: all 0.3s;
-      transform: translateX();
+      transform: translateX(5%);
     }
+    .span2{transform: translateX(112.5%);}
+    .span3{transform: translateX(220%);}
+    .span4{transform: translateX(330%);}
+    .span5{transform: translateX(440%);}
   }
   .conlist{
     width: 100%;

@@ -1,7 +1,7 @@
 <template>
   <div class="Livepage">
     <div class="main">
-      直播页面
+      <div class="page"></div>
     </div>
   </div>
 </template>

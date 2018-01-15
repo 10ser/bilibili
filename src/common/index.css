@@ -41,3 +41,6 @@ a{
   text-overflow:ellipsis;
   white-space: nowrap;
 }
+.white{
+  color: #fff;
+}

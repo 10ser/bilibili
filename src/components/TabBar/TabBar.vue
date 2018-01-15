@@ -67,6 +67,14 @@ export default {
       listAnimate: false
     }
   },
+  computed: {
+    loginbol () {
+      return this.$store.state.loginbol
+    },
+    userInfo () {
+      return this.$store.state.userInfo
+    }
+  },
   methods: {
     openSide () {
       this.listbol = true
@@ -84,17 +92,14 @@ export default {
       this.$router.push('/login')
     },
     touser () {
-      if (!this.userInfo.id) {
+      if (this.loginbol) {
         this.$router.push('/usermsg')
+      } else {
+        this.$msg('提示', '未登录，跳转至登录页面')
+          .then(res => {
+            this.$router.push('/login')
+          })
       }
-    }
-  },
-  computed: {
-    loginbol () {
-      return this.$store.state.loginbol
-    },
-    userInfo () {
-      return this.$store.state.userInfo
     }
   }
 }

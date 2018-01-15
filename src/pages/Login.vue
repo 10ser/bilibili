@@ -8,8 +8,8 @@
           <div class="user" :class="{'color':activeO}"><span class="iconfont icon-yonghu"></span><input type="text" placeholder="你的手机号/邮箱" v-model="user"  v-focus @focus="focusone"></div>
           <div class="psd" :class="{'color':!activeO}"><span class="iconfont icon-mima"></span><input type="password" placeholder="请输入密码" v-model="psd" @focus="focustwo"></div>
           <div class="btns">
-            <button @click="toreg">注册账号</button>
-            <button @click="login">登录</button>
+            <button @click.prevent="toreg">注册账号</button>
+            <button @click.prevent="login">登录</button>
           </div>
         </form>
       </div>
