@@ -12,7 +12,7 @@
         <div class="msg-autograth">个性签名<span></span></div>
       </div>
       <div class="msg-ts">"空间隐私设置"及"账号安全中心"移至设置·账号与隐私中啦</div>
-      <div class="down-btn">退出登录</div>
+      <div class="down-btn" @click="exit">退出登录</div>
     </div>
   </div>
 </template>
@@ -21,6 +21,17 @@ import Headbar from '@/components/Headbar'
 export default {
   components: {
     Headbar
+  },
+  methods: {
+    exit () {
+      this.$store.state.phoneInfo = {}
+      this.$store.state.loginbol = false
+      this.$msg('提示', '已退出登录')
+        .then(res => {
+          this.$store.dispatch('exit')
+          this.$router.push('/')
+        })
+    }
   }
 }
 </script>

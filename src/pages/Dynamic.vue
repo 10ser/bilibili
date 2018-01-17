@@ -2,9 +2,10 @@
   <div class="dynamic">
     <div class="main">
        <nav v-if="loginbol">
-         <a href="###" @click="changeactive(1)">视频</a>
-         <a href="###" @click="changeactive(2)">综合</a>
-         <a href="###" @click="changeactive(3)">热门</a>
+         <a href="###" @click="changeactive(1)" :class="{'white': active === 'tab1'}">视频</a>
+         <a href="###" @click="changeactive(2)" :class="{'white': active === 'tab2'}">综合</a>
+         <a href="###" @click="changeactive(3)" :class="{'white': active === 'tab3'}">热门</a>
+         <span :class="{'span1': active === 'tab1', 'span3': active === 'tab3', 'span2': active === 'tab2'}"></span>
        </nav>
        <div class="dt-content" v-if="loginbol">
          <mt-tab-container v-model="active" swipeable>
@@ -48,6 +49,7 @@
                      <div class="more"><span class="iconfont icon-gengduo1"></span></div>
                    </div>
                    <div class="img-show">
+                       <div class="img-exp">是否保持简单就说明材料费ID高速飞行程序公司开发领导不出特夫人是富士康就爱看，考虑时间哈深V阿深V附近AV发是附近AV聚聚啊积分撒</div>
                        <div class="dt-img">
                          <img src="/static/images/banner1.jpeg" alt="">
                          <div class="duration">00:00</div>
@@ -119,13 +121,29 @@ nav{
   background-color: #fb7299;
   position: relative;
   a{
+    color: #eaeaea;
     flex: 1;
-    color: #fff;
     text-align: center;
     height: 3rem;
     padding: 0% 2.5%;
     line-height: 3rem;
     font-size: 1.2rem;
+  }
+  span{
+    border: 1.5px solid;
+    display: block;
+    position: absolute;
+    color: #fff;
+    width: 20%;
+    border-radius: 10%;
+    bottom: 0;
+    transition: all 0.3s;
+  }
+  .span1{transform: translateX(28%);}
+  .span2{transform: translateX(184%);}
+  .span3{transform: translateX(342%);}
+  .white{
+    color: #fff;
   }
 }
 .history{
@@ -204,6 +222,7 @@ nav{
       .img-show{
         width: 100%;
         height: 9rem;
+        .img-exp{padding-bottom: 2%;}
         .dt-img{
           float: left;
           width: 45%;

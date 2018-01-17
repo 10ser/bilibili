@@ -165,7 +165,7 @@ export default {
         }
         span:last-child{
           float: right;
-          width: 40%;
+          width: 42%;
           b{color: #fb7299;margin: 0% 3%;}
         }
       }

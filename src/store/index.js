@@ -52,6 +52,9 @@ const actions = {
           return '该用户不存在'
         }
       })
+  },
+  exit ({commit}) {
+    commit('EXIT')
   }
 }
 
@@ -59,6 +62,10 @@ const mutations = {
   LOGIN (state, data) {
     state.phoneInfo = data
     state.loginbol = true
+  },
+  EXIT (state) {
+    state.phoneInfo = {}
+    state.loginbol = false
   }
 }
 

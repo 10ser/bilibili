@@ -18,7 +18,7 @@
                   <span class="iconfont icon-sousuo"></span>
                 </div>
                 <div class="banner">
-                  <mt-swipe :auto="2000" >
+                  <mt-swipe :auto="2000" :stopPropagation = "true">
                     <mt-swipe-item><img src="/static/images/banner1.jpeg" alt=""></mt-swipe-item>
                     <mt-swipe-item><img src="/static/images/banner2.jpeg" alt=""></mt-swipe-item>
                     <mt-swipe-item><img src="/static/images/banner3.jpeg" alt=""></mt-swipe-item>
@@ -38,7 +38,7 @@
                   </div>
                   <div class="comlis">
                       <ul>
-                        <li>
+                        <li @click.prevent="tolivepage">
                           <div class="imgs"><img src="/static/images/banner2.jpeg" alt="" ><span>主播名称</span></div>
                           <div class="content">
                             <p>直播内容叙述</p>
@@ -170,7 +170,7 @@
             <mt-tab-container-item id="conlistr4" class="contentlist yinshi">
               <div class="lists">
                 <div class="ys-banner">
-                   <mt-swipe :auto="2000" >
+                   <mt-swipe :auto="2000" :stopPropagation = "true" >
                     <mt-swipe-item><img src="/static/images/banner1.jpeg" alt=""></mt-swipe-item>
                     <mt-swipe-item><img src="/static/images/banner2.jpeg" alt=""></mt-swipe-item>
                     <mt-swipe-item><img src="/static/images/banner3.jpeg" alt=""></mt-swipe-item>
@@ -262,7 +262,7 @@
             <mt-tab-container-item id="conlistr5" class="contentlist zhuanlan">
               <div class="lists">
                 <div class="zl-banner">
-                   <mt-swipe :auto="2000" >
+                   <mt-swipe :auto="2000" :stopPropagation = "true" >
                     <mt-swipe-item><img src="/static/images/banner1.jpeg" alt=""></mt-swipe-item>
                     <mt-swipe-item><img src="/static/images/banner2.jpeg" alt=""></mt-swipe-item>
                     <mt-swipe-item><img src="/static/images/banner3.jpeg" alt=""></mt-swipe-item>
@@ -302,6 +302,9 @@ export default {
   methods: {
     changeActive (index) {
       this.active = 'conlistr' + index
+    },
+    tolivepage () {
+      this.$router.push('/livepage')
     }
   }
 }
