@@ -20,6 +20,9 @@ Vue.component(Swipe.name, Swipe)
 Vue.component(SwipeItem.name, SwipeItem)
 import axios from 'axios'
 Vue.prototype.$http = axios
+import VueAwesomeSwiper from 'vue-awesome-swiper'
+import 'swiper/dist/css/swiper.css'
+Vue.use(VueAwesomeSwiper)
 
 // 注册一个全局自定义指令 `v-focus`
 Vue.directive('focus', {

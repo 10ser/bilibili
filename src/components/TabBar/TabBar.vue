@@ -185,6 +185,7 @@ nav {
   background-color: #fff;
   display: flex;
   border-top: solid 1px #ddd;
+  z-index: 99;
   a {
     flex: 1;
     text-align: center;

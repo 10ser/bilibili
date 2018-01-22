@@ -2,15 +2,15 @@
   <div class="dynamic">
     <div class="main">
        <nav v-if="loginbol">
-         <a href="###" @click="changeactive(1)" :class="{'white': active === 'tab1'}">视频</a>
-         <a href="###" @click="changeactive(2)" :class="{'white': active === 'tab2'}">综合</a>
-         <a href="###" @click="changeactive(3)" :class="{'white': active === 'tab3'}">热门</a>
-         <span :class="{'span1': active === 'tab1', 'span3': active === 'tab3', 'span2': active === 'tab2'}"></span>
+         <a href="###" @click="changeactive(0)" :class="{'white': active === 0}">视频</a>
+         <a href="###" @click="changeactive(1)" :class="{'white': active === 1}">综合</a>
+         <a href="###" @click="changeactive(2)" :class="{'white': active === 2}">热门</a>
+         <span :class="{'span1': active === 0, 'span3': active === 2, 'span2': active === 1}"></span>
        </nav>
        <div class="dt-content" v-if="loginbol">
-         <mt-tab-container v-model="active" swipeable>
-           <mt-tab-container-item id="tab1" class="shipin">
-             <div class="history">
+        <swiper ref="mySwiper" @slideChange="callback">
+          <swiper-slide class="shipin">
+            <div class="history">
                <div class="hi-title">我的追番<span>查看全部&gt;</span></div>
                <div class="hi-lis">
                  <ul>
@@ -69,14 +69,14 @@
                  </li>
                </ul>
              </div>
-           </mt-tab-container-item>
-           <mt-tab-container-item id="tab2" class="zonghe">
-             综合页面
-           </mt-tab-container-item>
-           <mt-tab-container-item id="tab3" class="remen">
-             热门页面
-           </mt-tab-container-item>
-         </mt-tab-container>
+          </swiper-slide>
+          <swiper-slide class="zonghe">
+            综合页面
+          </swiper-slide>
+          <swiper-slide class="remen">
+            热门页面
+          </swiper-slide>
+        </swiper>
        </div>
        <div class="wdl" v-if="!loginbol">
          <img src="/static/images/weidenglu.png" alt="">
@@ -91,15 +91,19 @@ import TabBar from '@/components/TabBar/TabBar'
 export default {
   data () {
     return {
-      active: 'tab1'
+      active: 0
     }
   },
   methods: {
     changeactive (index) {
-      this.active = 'tab' + index
+      this.active = index
+      this.swiper.slideTo(index, 400, false)
     },
     tologin () {
       this.$router.push('/login')
+    },
+    callback () {
+      this.active = this.swiper.activeIndex
     }
   },
   components: {
@@ -108,6 +112,9 @@ export default {
   computed: {
     loginbol () {
       return this.$store.state.loginbol
+    },
+    swiper () {
+      return this.$refs.mySwiper.swiper
     }
   }
 }

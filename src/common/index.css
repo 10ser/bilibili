@@ -44,7 +44,7 @@ a{
 .orange{
   color: orange
 }
-.skybule{
+.skyblue{
   color: skyblue;
 }
 .omitted{
@@ -52,4 +52,8 @@ a{
   text-overflow:ellipsis;
   white-space: nowrap;
 }
-
+.pink{
+  color: #fb7299;
+}
+.red{color: red;}
+.gary{color: #090909;}

@@ -2,16 +2,16 @@
   <div class="home">
       <div class="main">
         <div class="navlist">  
-              <a href="###"  @click="changeActive(1)" :class="{'white': active === 'conlistr1'}">直播</a>
-              <a href="###"  @click="changeActive(2)" :class="{'white': active === 'conlistr2'}">推荐</a>
-              <a href="###"  @click="changeActive(3)" :class="{'white': active === 'conlistr3'}">追番</a>
-              <a href="###"  @click="changeActive(4)" :class="{'white': active === 'conlistr4'}">影视</a>
-              <a href="###"  @click="changeActive(5)" :class="{'white': active === 'conlistr5'}">专栏</a>
-              <span ref="span1" :class="{'span2':active === 'conlistr2','span3':active === 'conlistr3','span4':active === 'conlistr4','span5':active === 'conlistr5'}"></span>
+              <a href="###"  @click="changeActive(0)" :class="{'white': active === 0}">直播</a>
+              <a href="###"  @click="changeActive(1)" :class="{'white': active === 1}">推荐</a>
+              <a href="###"  @click="changeActive(2)" :class="{'white': active === 2}">追番</a>
+              <a href="###"  @click="changeActive(3)" :class="{'white': active === 3}">影视</a>
+              <a href="###"  @click="changeActive(4)" :class="{'white': active === 4}">专栏</a>
+              <span ref="span1" :class="{'span2':active === 1,'span3':active === 2,'span4':active === 3,'span5':active === 4}"></span>
         </div> 
         <div class="conlist" >
-          <mt-tab-container v-model="active" swipeable>
-            <mt-tab-container-item id="conlistr1" class="contentlist zhibo">
+          <swiper ref="mySwiper" @slideChange="callback">
+            <swiper-slide class="contentlist zhibo">
               <div class="lists">
                 <div class="search">
                   <input  type="text" placeholder="搜索房间或主播"/>
@@ -68,8 +68,8 @@
                   </div>
                   <div class="all">全部直播</div>
                 </div>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="conlistr2" class="contentlist tuijian">
+            </swiper-slide>
+            <swiper-slide class="contentlist tuijian">
               <div class="lists">
                 <div class="tjnav">
                   <div class="nav-left">
@@ -83,7 +83,7 @@
                 </div>
                 <div class="tjlis">
                   <ul>
-                    <li>
+                    <li @click="tovideo">
                       <div class="imgs">
                         <img src="/static/images/banner1.jpeg" alt="" >
                         <div class="imgjs">
@@ -94,8 +94,6 @@
                       </div>
                       <div class="content">
                         <p>直播内容叙述</p>
-                        <span class="span1">直播类型~相关</span>
-                        <span class="span2 iconfont icon-gengduo1"></span>
                       </div>
                     </li>
                     <li>
@@ -116,8 +114,8 @@
                   </ul>
                 </div>
               </div>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="conlistr3" class="contentlist zhuifan">
+            </swiper-slide>
+            <swiper-slide class="contentlist zhuifan">
               <div class="lists">
                <div class="zfbtns">
                  <div class="fjbtn btn">
@@ -166,8 +164,8 @@
                </div>
                <listcom />               
               </div>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="conlistr4" class="contentlist yinshi">
+            </swiper-slide>
+            <swiper-slide class="contentlist yinshi">
               <div class="lists">
                 <div class="ys-banner">
                    <mt-swipe :auto="2000" :stopPropagation = "true" >
@@ -258,8 +256,8 @@
                   </div>
                 </div>
               </div>
-            </mt-tab-container-item>
-            <mt-tab-container-item id="conlistr5" class="contentlist zhuanlan">
+            </swiper-slide>
+            <swiper-slide class="contentlist zhuanlan">
               <div class="lists">
                 <div class="zl-banner">
                    <mt-swipe :auto="2000" :stopPropagation = "true" >
@@ -275,10 +273,9 @@
                   <a href="###"><span class="iconfont icon-icon"></span>科技</a>
                   <a href="###"><span class="iconfont icon-qita-copy"></span>其他</a>
                 </div>
-                
               </div>
-            </mt-tab-container-item>
-          </mt-tab-container>
+            </swiper-slide>
+          </swiper>
         </div>
         <div class="zhibobtn" v-if="active === 'conlistr1' "><span>我 要 直 播</span></div>
       </div>
@@ -295,16 +292,28 @@ export default {
   },
   data () {
     return {
-      active: 'conlistr1',
-      tjactive: 'tjconlistr1'
+      active: 0,
+      tjactive: 'tjconlistr2'
     }
   },
   methods: {
     changeActive (index) {
-      this.active = 'conlistr' + index
+      this.active = index
+      this.swiper.slideTo(index, 400, false)
     },
     tolivepage () {
       this.$router.push('/livepage')
+    },
+    tovideo () {
+      this.$router.push('/videopage')
+    },
+    callback () {
+      this.active = this.swiper.activeIndex
+    }
+  },
+  computed: {
+    swiper () {
+      return this.$refs.mySwiper.swiper
     }
   }
 }
@@ -381,6 +390,7 @@ export default {
           background-color: #ddd;
           border: none;
           font-size: 1rem;
+          outline: none;
         }
         span{
           position: absolute;
@@ -515,6 +525,7 @@ export default {
               cursor: none;
               padding: 2%;
               color: #fb7299;
+              outline: none;
             }
           }
         }

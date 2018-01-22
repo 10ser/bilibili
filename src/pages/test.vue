@@ -1,36 +1,68 @@
 <template>
-  <div>
-    <div class="nav">
-        <mt-button  type="default" v-for="n in 3" :key="n" @click="test(n)">tab{{n}}</mt-button>
-    </div>
-    <div class="page-tab-container" >
-        <mt-tab-container v-model="active" swipeable>
-        <mt-tab-container-item id="tab-container1">
-          <mt-cell v-for="n in 10" title="tab-container 1" :key="n">{{n}}</mt-cell>
-        </mt-tab-container-item>
-        <mt-tab-container-item id="tab-container2">
-          <mt-cell v-for="n in 5" title="tab-container 2" :key="n">{{n}}</mt-cell>
-        </mt-tab-container-item>
-        <mt-tab-container-item id="tab-container3">
-          <mt-cell v-for="n in 7" title="tab-container 3" :key="n">{{n}}</mt-cell>
-        </mt-tab-container-item>
-        </mt-tab-container>
+  <div class="main">
+    <nav>
+      <a href="###" @click="go(1)">slide 1</a>
+      <a href="###" @click="go(2)">slide 2</a>
+      <a href="###" @click="go(3)">slide 3</a>
+      <a href="###" @click="go(4)">slide 4</a>
+    </nav>
+    <div class="swiper">
+      <swiper :options="swiperOption" ref="mySwiper" @slideChange="callback">
+        <swiper-slide>I'm Slide 1</swiper-slide>
+        <swiper-slide>I'm Slide 2</swiper-slide>
+        <swiper-slide>I'm Slide 3</swiper-slide>
+        <swiper-slide>I'm Slide 4</swiper-slide>
+      </swiper>
     </div>
   </div>
 </template>
 <script>
   export default {
-    // name: 'page-tab-container',
+    name: 'carrousel',
     data () {
       return {
-        active: 'tab-container1'
+        swiperOption: {
+          loop: true
+        }
       }
     },
+    computed: {
+      swiper () {
+        return this.$refs.mySwiper.swiper
+      }
+    },
+    mounted () {
+      // current swiper instance
+      // 然后你就可以使用当前上下文内的swiper对象去做你想做的事了
+      console.log('this is current swiper instance object', this.swiper)
+      // this.swiper.slideTo(3, 1000, false)
+    },
     methods: {
-      test (id) {
-        this.active = 'tab-container' + (id)
-        console.log(this.active)
+      callback () {
+        console.log('滑动了')
+      },
+      go (index) {
+        this.swiper.slideTo(index, 400, false)
       }
     }
   }
 </script>
+<style lang="less" scoped>
+nav{
+  width: 100%;
+  height: 3rem;
+  display: flex;
+  justify-content: space-around;
+  a{
+    height: 3rem;
+    text-align: center;
+    line-height: 3rem;
+    background-color: #999;
+  }
+}
+.swiper{
+  width: 100%;
+  background-color: #fff;
+  height: 200px;;
+}
+</style>

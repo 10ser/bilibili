@@ -36,7 +36,16 @@
         <div class="live-lis">
           <mt-tab-container v-model="active" swipeable class="wan">
             <mt-tab-container-item id="lis1" class="hudong">
-               <div class="bar-show"></div>
+               <div class="bar-show">
+                 <ul>
+                   <li>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                   </li>
+                 </ul>
+               </div>
                <div class="pl-input">
                 <div class="pl-lw"><span class="iconfont icon-bilibili_"></span></div>
                 <div class="pl-int"><input type="text" placeholder="输入想发送的弹幕"></div>
@@ -77,7 +86,7 @@
                  <li><span class="iconfont icon-xing1"></span>mingzi</li>
                </ul>
              </div>
-             <div class="into-btn">点击上主播的舰队</div>
+             <div class="into-btn"><span class="iconfont icon-bilibili_"></span>主播的小船 一点就上<b class="iconfont icon-moreinfo-copy"></b></div>
             </mt-tab-container-item>
             <mt-tab-container-item id="lis4" class="youai">
               <div class="support">
@@ -364,10 +373,8 @@ export default {
         width: 100%;
         height: 100%;
         .pl-input{
-          // position: absolute;
-          position: fixed;
+          position: absolute;
           bottom: 0;
-          position: relative;
           background-color: #fff;
           height: 3rem;
           width: 100%;
@@ -412,8 +419,19 @@ export default {
           }
         }
         .bar-show{
-          height: 100%;
+          width: 100%;
+          overflow: hidden;
+          height: 28rem;
           overflow: scroll;
+          padding: 0 3%;
+          li{
+            width: 100%;
+            padding: 1% 0;
+            span{
+              color: #fb7299;
+              margin-right: 2%;
+            }
+          }
         }
       }
       .paihang{
@@ -475,14 +493,13 @@ export default {
         .top-lis{
           width: 100%;
           overflow: hidden;
-          height: 15rem;
+          height: 28rem;
+          overflow: scroll;
           ul{
-            padding: 1% 5%;
-            height: 100%;
-            overflow: scroll;
+            padding: 0 3%;
             li{
               width: 100%;
-              padding: 1% 0;
+              padding: 1% 5%;
               position: relative;
               padding-left:10%; 
               span{
@@ -493,6 +510,32 @@ export default {
                 transform: translateY(-50%);
               }
             }
+          }
+        }
+        .into-btn{
+          width: 100%;
+          background-color: #fff;
+          height: 3rem;
+          position: absolute;
+          padding: 2% 10%;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          span{
+            font-size: 2rem;
+            color:#fb7299;
+            position: absolute;
+            left: 2%;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+          b{
+            font-size: 2rem;
+            color:#fb7299;
+            position: absolute;
+            right: 2%;
+            top: 50%;
+            transform: translateY(-50%);
           }
         }
       }
