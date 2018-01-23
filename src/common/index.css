@@ -25,7 +25,7 @@ a{
 /*滚动条垂直方向的宽度*/
 ::-webkit-scrollbar
 {
-	width: 3px;
+	width: 2px;
 }
 /* 垂直滚动条的滑动块 */
 ::-webkit-scrollbar-thumb:vertical {
@@ -51,6 +51,12 @@ a{
   overflow: hidden;
   text-overflow:ellipsis;
   white-space: nowrap;
+}
+.omitteds{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 .pink{
   color: #fb7299;

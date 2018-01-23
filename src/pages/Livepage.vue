@@ -27,14 +27,14 @@
           </div>
         </div>
          <nav>
-          <a href="###" @click.prevent="changeactive(1)" :class="{'pink': active === 'lis1'}" >互动</a>
-          <a href="###" @click.prevent="changeactive(2)" :class="{'pink': active === 'lis2'}" >排行榜</a>
-          <a href="###" @click.prevent="changeactive(3)" :class="{'pink': active === 'lis3'}" >舰队</a>
-          <a href="###" @click.prevent="changeactive(4)" :class="{'pink': active === 'lis4'}" >友爱社</a>
-          <span :class="{'span1': active === 'lis1', 'span2': active === 'lis2', 'span3': active === 'lis3', 'span4': active === 'lis4'}"></span>
+          <a href="###" @click.prevent="changeactive(0)" :class="{'pink': active === 0}" >互动</a>
+          <a href="###" @click.prevent="changeactive(1)" :class="{'pink': active === 1}" >排行榜</a>
+          <a href="###" @click.prevent="changeactive(2)" :class="{'pink': active === 2}" >舰队</a>
+          <a href="###" @click.prevent="changeactive(3)" :class="{'pink': active === 3}" >友爱社</a>
+          <span :class="{'span1': active === 0, 'span2': active === 1, 'span3': active === 2, 'span4': active === 3}"></span>
           </nav>
         <div class="live-lis">
-          <mt-tab-container v-model="active" swipeable class="wan">
+          <!-- <mt-tab-container v-model="active" swipeable class="wan">
             <mt-tab-container-item id="lis1" class="hudong">
                <div class="bar-show">
                  <ul>
@@ -95,7 +95,69 @@
                 <div class="sup-num">本周应援值：666<span><b class="iconfont icon-xing1"></b>应援999天</span></div>
               </div>
             </mt-tab-container-item>
-          </mt-tab-container>
+          </mt-tab-container> -->
+          <swiper ref="mySwiper" @slideChange="callback" class="wan">
+            <swiper-slide class="hudong">
+               <div class="bar-show">
+                 <ul>
+                   <li>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                     <div class="user-pl"><span>username:</span> <b>评论内容</b></div>
+                   </li>
+                 </ul>
+               </div>
+               <div class="pl-input">
+                <div class="pl-lw"><span class="iconfont icon-bilibili_"></span></div>
+                <div class="pl-int"><input type="text" placeholder="输入想发送的弹幕"></div>
+                <div class="pl-more"><span class="iconfont icon-moreinfo-copy"></span></div>
+              </div>
+            </swiper-slide>
+            <swiper-slide class="paihang">
+              <div class="ph-title">粉丝榜</div>
+              <div class="fs-lis">
+                <ul>
+                  <li><span>1</span>名字<var>66666</var></li>
+                </ul>
+              </div>
+            </swiper-slide>
+            <swiper-slide class="jiandui">
+               <div class="top3">
+               <div><img src="/static/images/timg.1.jpg" alt=""><span>mingzi</span></div>
+               <div><img src="/static/images/timg.1.jpg" alt=""><span>mingzi</span></div>
+               <div><img src="/static/images/timg.1.jpg" alt=""><span>mingzi</span></div>
+             </div>
+             <div class="top-lis">
+               <ul>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+                 <li><span class="iconfont icon-xing1"></span>mingzi</li>
+               </ul>
+             </div>
+             <div class="into-btn"><span class="iconfont icon-bilibili_"></span>主播的小船 一点就上<b class="iconfont icon-moreinfo-copy"></b></div>
+            </swiper-slide>
+            <swiper-slide class="youai">
+              <div class="support">
+                <div class="sup-title">No.1 名称</div>
+                <div class="user">社长 <img src="/static/images/timg.1.jpg" alt="" srcset=""><span>mingz</span></div>
+                <div class="sup-num">本周应援值：666<span><b class="iconfont icon-xing1"></b>应援999天</span></div>
+              </div>
+            </swiper-slide>
+          </swiper>
         </div>
       </div>
     </div>
@@ -105,13 +167,14 @@
 export default {
   data () {
     return {
-      active: 'lis1',
-      hidebol: false
+      active: 0,
+      hidebol: true
     }
   },
   methods: {
     changeactive (index) {
-      this.active = 'lis' + index
+      this.active = index
+      this.swiper.slideTo(index, 400, false)
     },
     hide () {
       this.hidebol = !this.hidebol
@@ -121,7 +184,20 @@ export default {
     },
     back () {
       this.$router.go(-1)
+    },
+    callback () {
+      this.active = this.swiper.activeIndex
     }
+  },
+  computed: {
+    swiper () {
+      return this.$refs.mySwiper.swiper
+    }
+  },
+  created () {
+    setTimeout(() => {
+      this.hidebol = false
+    }, 3000)
   }
 }
 </script>

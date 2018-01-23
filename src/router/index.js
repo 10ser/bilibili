@@ -14,6 +14,7 @@ const Listcom = resolve => require(['@/components/Listcom.vue'], resolve)
 const Login = resolve => require(['@/pages/Login.vue'], resolve)
 const Register = resolve => require(['@/pages/Register.vue'], resolve)
 const Livepage = resolve => require(['@/pages/Livepage.vue'], resolve)
+const Fjpage = resolve => require(['@/pages/Fjpage.vue'], resolve)
 const Videopage = resolve => require(['@/pages/Videopage.vue'], resolve)
 const UserMsg = resolve => require(['@/pages/UserMsg.vue'], resolve)
 const User = resolve => require(['@/pages/User.vue'], resolve)
@@ -71,6 +72,11 @@ export default new Router({
       path: '/livepage',
       name: 'livepage',
       component: Livepage
+    },
+    {
+      path: '/fjpage',
+      name: 'fjpage',
+      component: Fjpage
     },
     {
       path: '/videopage',

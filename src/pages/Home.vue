@@ -9,7 +9,7 @@
               <a href="###"  @click="changeActive(4)" :class="{'white': active === 4}">专栏</a>
               <span ref="span1" :class="{'span2':active === 1,'span3':active === 2,'span4':active === 3,'span5':active === 4}"></span>
         </div> 
-        <div class="conlist" >
+        <div class="conlist" ref="conlis">
           <swiper ref="mySwiper" @slideChange="callback">
             <swiper-slide class="contentlist zhibo">
               <div class="lists">
@@ -137,7 +137,7 @@
                  </div>
                  <div class="zflis">
                    <ul>
-                     <li>
+                     <li @click="tofjpage">
                        <div class="pic"><img src="/static/images/fm.jpg" alt="" srcset=""></div>
                        <div class="fjname">一人之下 第二季</div>
                        <div class="fjnum">更新至第10话</div>
@@ -273,6 +273,25 @@
                   <a href="###"><span class="iconfont icon-icon"></span>科技</a>
                   <a href="###"><span class="iconfont icon-qita-copy"></span>其他</a>
                 </div>
+                <div class="zl-con">
+                  <div class="zl-title">推荐文章<span class="iconfont icon-paixing">排行榜</span></div>
+                  <div class="zl-lis">
+                    <ul>
+                      <li>
+                        <div class="head"><img src="/static/images/timg.1.jpg" alt="">用户名称</div>
+                        <div class="lis-title">列表标题名称</div>
+                        <div class="lis-img"><img src="/static/images/banner1.jpeg" alt=""></div>
+                        <div class="lis-con omitteds">列表内容描述阿斯加德哈空间上的空间安徽的会计安徽科技时代好看教案汇顶科技阿卡蝴蝶结卡回收的空间撒活动空间按活动空间啊好多卡较好的</div>
+                        <div class="lis-bot">
+                          <span>分类</span>
+                          <span>6666阅读</span>
+                          <a href="###"><span class="iconfont icon-pinglun"></span>2</a>
+                          <a href="###"><span class="iconfont icon-praise"></span>30</a>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </swiper-slide>
           </swiper>
@@ -300,6 +319,7 @@ export default {
     changeActive (index) {
       this.active = index
       this.swiper.slideTo(index, 400, false)
+      console.log(this.conlis)
     },
     tolivepage () {
       this.$router.push('/livepage')
@@ -309,11 +329,17 @@ export default {
     },
     callback () {
       this.active = this.swiper.activeIndex
+    },
+    tofjpage () {
+      this.$router.push('/fjpage')
     }
   },
   computed: {
     swiper () {
       return this.$refs.mySwiper.swiper
+    },
+    conslis () {
+      return this.$refs.conlis
     }
   }
 }
@@ -371,14 +397,12 @@ export default {
     position: relative;
     .contentlist{
         width: 100%;
-        height: 100%;
         .lists{
           width: 100%;
-          height: 100%;
         }
       }
     .zhibo{
-      padding: 0 2.8% 25% 2.8%;
+      padding: 0 2.8% 0% 2.8%;
       .search{
         width: 100%;
         padding: 3% 0;
@@ -541,7 +565,6 @@ export default {
       }
     }
     .tuijian{
-      padding: 0 0 25% 0;
       .tjnav{
         width: 100%;
         height: 2.5rem;
@@ -640,7 +663,6 @@ export default {
       }
     }
     .zhuifan{
-      padding: 0 0 25% 0;
       .zfbtns{
         width: 100%;
         height: 5rem;
@@ -746,7 +768,6 @@ export default {
       }
     }
     .yinshi{
-      padding: 0 0 25% 0;
       .ys-banner{
         background-color: #fff;
         padding: 3% 2.5% 3% 2.5%;
@@ -904,7 +925,6 @@ export default {
       }
     }
     .zhuanlan{
-      padding: 0 0 25% 0;
       .zl-banner{
         padding: 3% 2.5% 3% 2.5%;
         width: 100%;
@@ -926,6 +946,78 @@ export default {
             margin: auto;
             font-size: 2rem;
             margin-bottom: 5%;
+          }
+        }
+      }
+      .zl-con{
+        width: 100%;
+        padding: 3%;
+        height: 2rem;
+        line-height: 2rem;
+        .zl-title{
+          width: 100%;
+          font-weight: bold;
+          span{
+            float: right;
+            font-size: 1rem;
+            color: #fb7299;
+          }
+        }
+        .zl-lis{
+          width: 100%;
+          ul{
+            width: 100%;
+            li{
+              width: 100%;
+              background-color: #fff;
+              padding: 2% 0;
+              .head{
+                width: 100%;
+                padding: 0 4%;
+                color: #999;
+                img{
+                  width: 1.8rem;
+                  height: 1.8rem;
+                  border-radius: 50%;
+                  float: left;
+                  margin-right: 3%;
+                }
+              }
+              .lis-title{
+                width: 100%;
+                padding: 2% 4%;
+                font-size: 1.3rem;
+                font-weight: bolder;
+              }
+              .lis-img{
+                width: 100%;
+                height: 9rem;
+                img{height: 100%;width: 100%;}
+              }
+              .lis-con{
+                padding: 2%;
+                text-indent: 1rem;
+                color: #999999;
+              }
+              .lis-bot{
+                padding: 2%;
+                color: #999;
+                overflow: auto;
+                >span{
+                  float: left;
+                  margin-right: 5%;
+                }
+                a{
+                  float: right;
+                  color: #999;
+                  margin-right: 4%;
+                  span{
+                    font-size: 1.3rem;
+                    margin-right: 8%;
+                  }
+                }
+              }
+            }
           }
         }
       }
